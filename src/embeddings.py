@@ -53,8 +53,11 @@ class OpenAIEmbedder:
         self._backend_name = model_name
         self.client = OpenAI()
 
-    def __call__(self, text: str) -> list[float]:
-        response = self.client.embeddings.create(model=self.model_name, input=text)
+    def __call__(self, text: str, input_type: str | None = "passage") -> list[float]:
+        kwargs = {"model": self.model_name, "input": text}
+        if input_type:
+            kwargs["extra_body"] = {"input_type": input_type}
+        response = self.client.embeddings.create(**kwargs)
         return [float(value) for value in response.data[0].embedding]
 
 

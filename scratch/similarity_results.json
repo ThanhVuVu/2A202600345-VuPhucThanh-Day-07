@@ -1,0 +1,27 @@
+[
+  {
+    "A": "Con mèo đang ngủ trên sofa.",
+    "B": "Một chú mèo con đang nằm nghỉ trên ghế dài.",
+    "Sim": 0.8891011159740217
+  },
+  {
+    "A": "Tôi thích ăn cơm tấm Sài Gòn.",
+    "B": "Cơm tấm là món ăn yêu thích của tôi ở Sài Gòn.",
+    "Sim": 0.8950709953331439
+  },
+  {
+    "A": "Giá xăng hôm nay tăng mạnh.",
+    "B": "Thị trường chứng khoán có nhiều biến động.",
+    "Sim": 0.5999676188182577
+  },
+  {
+    "A": "Hôm nay trời nắng đẹp.",
+    "B": "Cá mập là loài động vật sống ở đại dương.",
+    "Sim": 0.27024701691813324
+  },
+  {
+    "A": "ICD là quán quân King of Rap.",
+    "B": "Dế Choắt vô địch Rap Việt mùa 1.",
+    "Sim": 0.610929415328713
+  }
+]

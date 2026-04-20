@@ -5,6 +5,7 @@
 ## Mục Tiêu
 
 Sau lab này, bạn cần có thể:
+
 - Giải thích cosine similarity và dự đoán điểm tương đồng giữa các văn bản
 - Triển khai 3 chiến lược chunking và so sánh ưu nhược điểm
 - Xây dựng vector store với search, filter, và delete
@@ -40,6 +41,7 @@ File `.env` được tự động nạp khi chạy `main.py`. Với các Python 
 ### 1) Mặc định: Mock embedder
 
 Không cần cài gì thêm ngoài:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -74,6 +76,7 @@ PY
 
 - Model mặc định cho lựa chọn này là `text-embedding-3-small`
 - Có thể đổi model bằng:
+
 ```bash
 export OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 ```
@@ -145,23 +148,27 @@ PY
 
 ## Các Giai Đoạn Lab
 
-| Giai Đoạn | Hoạt Động |
-|-----------|-----------|
-| Chuẩn bị tài liệu | Nhóm chọn domain, thu thập tài liệu, chuyển sang .md/.txt |
-| Lập trình cá nhân | Warm-up + implement tất cả TODO (cá nhân) |
-| Thiết kế strategy | Mỗi người thử strategy riêng, thống nhất 5 queries |
-| So sánh trong nhóm | Chạy benchmark, so sánh kết quả, chuẩn bị demo |
-| Demo & thảo luận | Trình bày strategy + so sánh, thảo luận liên nhóm |
+
+| Giai Đoạn          | Hoạt Động                                                 |
+| ------------------ | --------------------------------------------------------- |
+| Chuẩn bị tài liệu  | Nhóm chọn domain, thu thập tài liệu, chuyển sang .md/.txt |
+| Lập trình cá nhân  | Warm-up + implement tất cả TODO (cá nhân)                 |
+| Thiết kế strategy  | Mỗi người thử strategy riêng, thống nhất 5 queries        |
+| So sánh trong nhóm | Chạy benchmark, so sánh kết quả, chuẩn bị demo            |
+| Demo & thảo luận   | Trình bày strategy + so sánh, thảo luận liên nhóm         |
+
 
 ---
 
 ## Nhiệm Vụ Cá Nhân (Phase 1)
 
 ### Đã implement sẵn (tham khảo)
+
 - `Document` dataclass — container cho text + metadata
 - `FixedSizeChunker` — sliding window chunking
 
 ### Cần implement
+
 - `SentenceChunker` — chia theo ranh giới câu
 - `RecursiveChunker` — thử từng separator theo thứ tự
 - `compute_similarity` — cosine similarity
@@ -186,24 +193,20 @@ PY
 Khi chạy benchmark, đừng chỉ hỏi **"code có chạy không?"** mà hãy tự kiểm tra 5 góc nhìn sau:
 
 1. **Retrieval Precision**
-   - Top-3 có chứa chunk thật sự liên quan không?
-   - Score có tách được kết quả tốt và nhiễu không?
-
+  - Top-3 có chứa chunk thật sự liên quan không?
+  - Score có tách được kết quả tốt và nhiễu không?
 2. **Chunk Coherence**
-   - Chunk có giữ được ý trọn vẹn không?
-   - Strategy nào làm chunk dễ đọc và dễ retrieve hơn?
-
+  - Chunk có giữ được ý trọn vẹn không?
+  - Strategy nào làm chunk dễ đọc và dễ retrieve hơn?
 3. **Metadata Utility**
-   - `search_with_filter()` có giúp tăng độ chính xác không?
-   - Filter có quá chặt, làm mất kết quả tốt không?
-
+  - `search_with_filter()` có giúp tăng độ chính xác không?
+  - Filter có quá chặt, làm mất kết quả tốt không?
 4. **Grounding Quality**
-   - Câu trả lời của agent có thật sự dựa trên retrieved context không?
-   - Có thể chỉ ra chunk nào hỗ trợ câu trả lời không?
-
+  - Câu trả lời của agent có thật sự dựa trên retrieved context không?
+  - Có thể chỉ ra chunk nào hỗ trợ câu trả lời không?
 5. **Data Strategy Impact**
-   - Bộ tài liệu nhóm chọn có phù hợp với benchmark queries không?
-   - Strategy chunking / metadata của bạn có hợp với domain không?
+  - Bộ tài liệu nhóm chọn có phù hợp với benchmark queries không?
+  - Strategy chunking / metadata của bạn có hợp với domain không?
 
 > Xem `docs/EVALUATION.md` nếu bạn muốn một checklist chi tiết hơn cho phần này.
 
@@ -213,11 +216,13 @@ Khi chạy benchmark, đừng chỉ hỏi **"code có chạy không?"** mà hãy
 
 Xem chi tiết tại `docs/SCORING.md`. Tóm tắt:
 
-| Phần | Điểm |
-|------|------|
-| Cá nhân (code + phân tích) | 60 |
-| Nhóm (strategy + so sánh) | 40 |
-| **Tổng** | **100** |
+
+| Phần                       | Điểm    |
+| -------------------------- | ------- |
+| Cá nhân (code + phân tích) | 60      |
+| Nhóm (strategy + so sánh)  | 40      |
+| **Tổng**                   | **100** |
+
 
 ---
 
@@ -233,3 +238,4 @@ Xem chi tiết tại `docs/SCORING.md`. Tóm tắt:
 ```bash
 pytest tests/ -v
 ```
+
